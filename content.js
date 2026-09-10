@@ -31,6 +31,9 @@
       [class]:has(> ${REACT_ALERT}:only-child),
       [class]:has(> [class]:only-child > ${REACT_ALERT}:only-child),
       /* Ember layout: the whole global alert container */
+      ${EMBER_CONTAINER},
+      ${EMBER_ALERT},
+      [data-test-global-alert],
       html body ${EMBER_CONTAINER},
       html body ${EMBER_ALERT} {
         display: none !important;
@@ -98,5 +101,10 @@
   }
   setInterval(dismissAlerts, 2000);
 
-  console.log("[LI Remover] active on", host);
+  console.log("[LI Remover] active on", host, "path:", location.pathname);
+  setTimeout(() => {
+    console.log("[LI Remover] ember alerts found:",
+      document.querySelectorAll(EMBER_ALERT).length,
+      "react alerts found:", document.querySelectorAll(REACT_DISMISS).length);
+  }, 3000);
 })();
