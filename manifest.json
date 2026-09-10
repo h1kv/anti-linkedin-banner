@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "Anti LinkedIn Banner",
+  "version": "1.0.0",
+  "description": "Hides and auto-dismisses LinkedIn global alert banners on every page load and navigation.",
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ]
+}
